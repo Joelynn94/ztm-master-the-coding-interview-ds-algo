@@ -1,7 +1,7 @@
 // //If you know a solution is not far from the root of the tree:
 // BFS
 
-// //If the tree is very deep and solutions are rare: 
+// //If the tree is very deep and solutions are rare:
 // BFS - DFS will be slower
 
 // //If the tree is very wide:

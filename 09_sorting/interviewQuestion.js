@@ -14,7 +14,6 @@
 
 // // #8 - You want to teach sorting for the first time: Bubble Sort, Selection Sort porque son los más sencillos.
 
-
 // // ANSWERS:
 // //#1 - Sort 10 schools around your house by distance:
 // insertion sort

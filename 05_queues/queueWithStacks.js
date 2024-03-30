@@ -1,47 +1,47 @@
 class CrazyQueue {
-    constructor() {
-        this.first = [];
-        this.last = [];
+  constructor() {
+    this.first = [];
+    this.last = [];
+  }
+
+  enqueue(value) {
+    const length = this.first.length;
+
+    for (let i = 0; i < length; i++) {
+      this.last.push(this.first.pop());
     }
 
-    enqueue(value) {
-        const length = this.first.length;
+    this.last.push(value);
 
-        for (let i = 0; i < length; i++) {
-            this.last.push(this.first.pop());
-        }
+    return this;
+  }
 
-        this.last.push(value);
+  dequeue() {
+    const length = this.last.length;
 
-        return this;
+    for (let i = 0; i < length; i++) {
+      this.first.push(this.last.pop());
     }
 
-    dequeue() {
-        const length = this.last.length;
+    this.first.pop();
 
-        for (let i = 0; i < length; i++) {
-            this.first.push(this.last.pop());
-        }
+    return this;
+  }
 
-        this.first.pop();
-
-        return this;
+  peek() {
+    if (this.first.length > 0) {
+      return this.first[this.first.length - 1];
     }
 
-    peek() {
-        if (this.first.length > 0) {
-            return this.first[this.first.length - 1];
-        }
-
-        return this.last[0];
-    }
+    return this.last[0];
+  }
 }
 
 const myQueue = new CrazyQueue();
 console.log(myQueue.peek());
-myQueue.enqueue('Joy');
-myQueue.enqueue('Matt');
-myQueue.enqueue('Pavel');
+myQueue.enqueue("Joy");
+myQueue.enqueue("Matt");
+myQueue.enqueue("Pavel");
 console.log(myQueue.peek());
 console.log("========");
 console.log(myQueue.dequeue());

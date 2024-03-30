@@ -1,55 +1,54 @@
 class HashTable {
-    constructor(size) {
-        this.data = new Array(size);
+  constructor(size) {
+    this.data = new Array(size);
+  }
+
+  // O(1)
+  _hash(key) {
+    let hash = 0;
+
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
     }
 
-    // O(1)
-    _hash(key) {
-        let hash = 0;
+    return hash;
+  }
 
-        for (let i = 0; i < key.length; i++) {
-            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+  // O(1)
+  set(key, value) {
+    let address = this._hash(key);
+
+    if (!this.data[address]) {
+      this.data[address] = [];
+    }
+
+    this.data[address].push([key, value]);
+  }
+
+  get(key) {
+    let address = this._hash(key);
+
+    const currentBucket = this.data[address];
+
+    if (currentBucket.length) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if (currentBucket[i][0] === key) {
+          return currentBucket[i][1];
         }
-
-        return hash;
+      }
     }
 
-    // O(1)
-    set(key, value) {
-        let address = this._hash(key);
+    return undefined;
+  }
 
-        if (!this.data[address]) {
-            this.data[address] = [];
-        }
+  keys() {
+    const keysArray = [];
+    const flatData = this.data.flat();
 
-        this.data[address].push([key, value]);
-    }
+    flatData.forEach((entry) => keysArray.push(entry[0]));
 
-  
-    get(key) {
-        let address = this._hash(key);
-
-        const currentBucket = this.data[address];
-
-        if (currentBucket.length) {
-            for (let i = 0; i < currentBucket.length; i++) {
-                if (currentBucket[i][0] === key) {
-                    return currentBucket[i][1];
-                }
-            }
-        }
-
-        return undefined;
-    }
-
-    keys() {
-        const keysArray = [];
-        const flatData = this.data.flat();
-
-        flatData.forEach(entry => keysArray.push(entry[0]));
-
-        return keysArray;
-    }
+    return keysArray;
+  }
 }
 
 const myHashTable = new HashTable(50);
