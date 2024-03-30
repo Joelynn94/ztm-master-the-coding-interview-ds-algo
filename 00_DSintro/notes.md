@@ -9,7 +9,11 @@
 
 - A way for us to organize data.
 
-- A data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data
+- A data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.
+
+## Why so many of them?
+
+Different data structures excel at different things. Some are highly specialized, while others (like arrays) are more generally used.
 
 ### 2 parts to understanding data structures
 

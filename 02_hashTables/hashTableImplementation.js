@@ -25,6 +25,7 @@ class HashTable {
     this.data[address].push([key, value]);
   }
 
+  // O(1)
   get(key) {
     let address = this._hash(key);
 
@@ -41,6 +42,7 @@ class HashTable {
     return undefined;
   }
 
+  // O(n)
   keys() {
     const keysArray = [];
     const flatData = this.data.flat();
