@@ -45,11 +45,16 @@ class MyArray {
 const newArray = new MyArray();
 
 newArray.push("hi");
+console.log(newArray);
+
 newArray.push("you");
+console.log(newArray);
+
 newArray.push("!");
+console.log(newArray);
 
 newArray.pop();
+console.log(newArray);
 
 newArray.delete(1);
-
 console.log(newArray);
